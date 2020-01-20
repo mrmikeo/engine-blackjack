@@ -165,7 +165,7 @@ export default class Game {
         const dealerHoleCard = this.state.deck.splice(this.state.deck.length - 1, 1)[ 0 ]
         */
         
-        const playerCards = this.state.deck.splice(this.state.deck.length - 1, 1)
+        var playerCards = this.state.deck.splice(this.state.deck.length - 1, 1)
         const dealerHoleCard = this.state.deck.splice(this.state.deck.length - 1, 1)[ 0 ]
         playerCards = playerCards.concat(this.state.deck.splice(this.state.deck.length - 1, 1))
         const dealerCards = this.state.deck.splice(this.state.deck.length - 1, 1)
