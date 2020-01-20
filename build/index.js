@@ -1008,10 +1008,12 @@ var Game = function () {
             const dealerHoleCard = this.state.deck.splice(this.state.deck.length - 1, 1)[ 0 ]
             */
 
-            var playerCards = this.state.deck.splice(this.state.deck.length - 1, 1);
+            var playerDeal = this.state.deck.splice(this.state.deck.length - 1, 1);
             var dealerHoleCard = this.state.deck.splice(this.state.deck.length - 1, 1)[0];
-            playerCards.concat(this.state.deck.splice(this.state.deck.length - 1, 1));
+            playerDeal = playerDeal.concat(this.state.deck.splice(this.state.deck.length - 1, 1));
             var dealerCards = this.state.deck.splice(this.state.deck.length - 1, 1);
+
+            var playerCards = playerDeal;
 
             var dealerValue = engine.calculate(dealerCards);
             var dealerHasBlackjack = engine.isBlackjack(dealerCards.concat([dealerHoleCard]));
