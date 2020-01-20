@@ -165,11 +165,13 @@ export default class Game {
         const dealerHoleCard = this.state.deck.splice(this.state.deck.length - 1, 1)[ 0 ]
         */
         
-        var playerCards = this.state.deck.splice(this.state.deck.length - 1, 1)
+        var playerDeal = this.state.deck.splice(this.state.deck.length - 1, 1)
         const dealerHoleCard = this.state.deck.splice(this.state.deck.length - 1, 1)[ 0 ]
-        playerCards = playerCards.concat(this.state.deck.splice(this.state.deck.length - 1, 1))
+        playerDeal = playerDeal.concat(this.state.deck.splice(this.state.deck.length - 1, 1))
         const dealerCards = this.state.deck.splice(this.state.deck.length - 1, 1)
 
+        const playerCards = playerDeal
+        
         const dealerValue = engine.calculate(dealerCards)
         let dealerHasBlackjack = engine.isBlackjack(dealerCards.concat([dealerHoleCard]))
         const right = this.enforceRules(engine.getHandInfoAfterDeal(playerCards, dealerCards, bet))
