@@ -158,9 +158,18 @@ export default class Game {
       case TYPES.DEAL: {
         const { bet, sideBets } = action.payload
         const { rules: { insurance }, availableBets, history, hits } = this.state
+        /*
         const playerCards = this.state.deck.splice(this.state.deck.length - 2, 2)
         const dealerCards = this.state.deck.splice(this.state.deck.length - 1, 1)
+        playerCards.concat(this.state.deck.splice(this.state.deck.length - 2, 2)
         const dealerHoleCard = this.state.deck.splice(this.state.deck.length - 1, 1)[ 0 ]
+        */
+        
+        const playerCards = this.state.deck.splice(this.state.deck.length - 1, 1)
+        const dealerHoleCard = this.state.deck.splice(this.state.deck.length - 1, 1)[ 0 ]
+        playerCards.concat(this.state.deck.splice(this.state.deck.length - 1, 1)
+        const dealerCards = this.state.deck.splice(this.state.deck.length - 1, 1)
+
         const dealerValue = engine.calculate(dealerCards)
         let dealerHasBlackjack = engine.isBlackjack(dealerCards.concat([dealerHoleCard]))
         const right = this.enforceRules(engine.getHandInfoAfterDeal(playerCards, dealerCards, bet))
